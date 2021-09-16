@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <meta charset="UTF-8">
 <title>Escola Brasil - Lista de Presença</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,6 +10,7 @@
     <script src="./bibliotecas/html5-qrcode.min.js"></script>
 </head>
 <body>
+    <!--MENU-->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Lista de Presença</a>
@@ -24,13 +25,20 @@
                 </ul>
               </div>
         </div>
-    </nav>
+    </nav>    
     <div class="container">
+        <!--EXIBIÇÃO DA CÂMERA-->
         <div class="row">
-            <div class="mx-auto" style="width: 500; height: 500;">
+            <div>
+                <select id="cameras">
+                    
+                </select>
+            </div>
+            <div class="mx-auto" style="width: 300; height: 300;">
                 <div id="reader"></div>
             </div>
         </div>
+        <!--LISTA DE REGISTROS-->
         <div class="row">
             <ul class="list-group" id="qrCodeLidos">                
             </ul>
