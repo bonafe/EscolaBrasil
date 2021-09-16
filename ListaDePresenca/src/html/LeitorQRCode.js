@@ -1,5 +1,15 @@
 export class LeitorQRCode{
     constructor(){
+
+        this.qrCodeLidos = document.querySelector("#qrCodeLidos");        
+        this.ultimoQRCodeLido = undefined;
+        this.listaQRCode = [];
+
+        document.querySelector("#btnEnviarLista").addEventListener("click", () =>{
+          console.log ("Enviando lista de QRCodes lidos");
+          console.dir(this.listaQRCode);
+        });
+
         this.selecionarCamera();
     }
 
@@ -31,7 +41,11 @@ export class LeitorQRCode{
                         // scannable, rest shaded.
           },
           qrCodeMessage => {
-            // do something when code is read. For example:
+
+            if (this.ultimoQRCodeLido !== qrCodeMessage){
+                this.ultimoQRCodeLido = qrCodeMessage;
+                this.adicionarItem(this.ultimoQRCodeLido);
+            }
             console.log(`QR Code detected: ${qrCodeMessage}`);
           },
           errorMessage => {
@@ -42,5 +56,16 @@ export class LeitorQRCode{
           // Start failed, handle it. For example,
           console.log(`Unable to start scanning, error: ${err}`);
         });
+    }
+
+    adicionarItem(valorQRCode){
+
+        const agora = new Date()
+        let li = document.createElement("li");
+        li.classList.add('list-group-item');
+        li.innerText = `${agora.toISOString()} --- ${valorQRCode}`;        
+        this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
+
+        this.listaQRCode.appendChild ({data:agora, conteudo:valorQRCode});
     }
 }
