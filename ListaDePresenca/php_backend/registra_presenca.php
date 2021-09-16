@@ -12,7 +12,7 @@ if(isset($_GET["dia"])){
 
 
 $username="victor";
-$pass="aerofolio";
+$pass="ops";
 $database="escolax";
 $agora=date('Y-m-d');
 
