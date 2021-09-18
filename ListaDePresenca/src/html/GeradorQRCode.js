@@ -33,12 +33,13 @@ window.onload = () => {
 }
 
 function gerarQRCode(textoQRCode){
+    let textoSemAcentos = retira_acentos(textoQRCode);
     let containerQRCode = document.querySelector("#containerQRCode");
     if (!window.geradorQRCode){
-        window.geradorQRCode = new QRCode(containerQRCode, textoQRCode);
+        window.geradorQRCode = new QRCode(containerQRCode, textoSemAcentos);
     }else{
         window.geradorQRCode.clear();
-        window.geradorQRCode.makeCode(textoQRCode);
+        window.geradorQRCode.makeCode(textoSemAcentos);
     }
 }
 
@@ -110,3 +111,26 @@ function dataEmString(data){
     let minuto = String(data.getMinutes()).padStart(2, '0');
     return `${ano}-${mes}-${dia}_${hora}-${minuto}`;
 }
+
+//Copiado de https://pt.stackoverflow.com/questions/237762/remover-acentos-javascript
+function retira_acentos(str) {
+    let com_acento = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝŔÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŕ";
+
+    let sem_acento = "AAAAAAACEEEEIIIIDNOOOOOOUUUUYRsBaaaaaaaceeeeiiiionoooooouuuuybyr";
+
+    let novastr="";
+    for(let i=0; i<str.length; i++) {
+        let troca=false;
+        for (let a=0; a<com_acento.length; a++) {
+            if (str.substr(i,1)==com_acento.substr(a,1)) {
+                novastr+=sem_acento.substr(a,1);
+                troca=true;
+                break;
+            }
+        }
+        if (troca==false) {
+            novastr+=str.substr(i,1);
+        }
+    }
+    return novastr;
+}       
