@@ -1,6 +1,9 @@
 //USANDO A BIBLIOTECA
 //https://github.com/mebjas/html5-qrcode
 
+import { ServiceUtils } from "./service_utils.js";
+import { TextoParaVoz } from "./TextoParaVoz.js"
+
 export class LeitorQRCode{
     
     constructor(){
@@ -34,6 +37,11 @@ export class LeitorQRCode{
           document.querySelector("#btnEnviarLista").addEventListener("click", () =>{
             console.log ("Enviando lista de QRCodes lidos");
             console.dir(this.listaQRCode);
+            ServiceUtils.postJSON (this.urlDestino.value, this.listaQRCode).then (() => {
+                alert (`Lista enviada com sucesso!`);
+            }).catch((erro) => {
+              alert (`Não foi possível enviar lista! Erro: ${erro}`);
+            });
           });
         }
 
