@@ -8,6 +8,7 @@ export class LeitorQRCode{
     
     constructor(){
 
+        TextoParaVoz.INSTANCE;
         this.html5QrCode = null;
 
         this.somQRCodeLido = new Audio('./audio/qrcode_lido.mp3');
@@ -127,7 +128,17 @@ export class LeitorQRCode{
 
     adicionarItem(valorQRCode){
 
-        this.somQRCodeLido.play();
+        let falou = false;
+        let partes = valorQRCode.split("-");
+        if (partes.length == 2){
+          if (Number.isInteger(parseInt(partes[1]))){
+            TextoParaVoz.INSTANCE.falar(partes[0]);
+            falou = true;
+          }
+        }
+        if (!falou){
+          this.somQRCodeLido.play();
+        }
 
         const agora = new Date()
         let li = document.createElement("li");
