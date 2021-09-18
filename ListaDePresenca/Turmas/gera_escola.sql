@@ -11,7 +11,7 @@ create table registrados(id_chave_registrado int not null auto_increment, nome_r
 
 create table turmas_registrados (id_chave_turma_registrado int not null auto_increment, nome_turma_registrado varchar(100), id_turma int, id_registrado int, id_tipo_vinculo int, primary key (id_chave_turma_registrado));
 
-create table presencas(id_chave_presenca int not null auto_increment, nome_presenca varchar(100), id_registrado int, time_stamp timestamp, primary key (id_chave_presenca));
+create table presencas(id_chave_presenca int not null auto_increment, nome_presenca varchar(100), id_registrado int, entrada_saida int comment "0 eh entrada e 1 eh saida", data_tempo datetime, time_stamp timestamp, primary key (id_chave_presenca));
 
 ALTER TABLE presencas ADD CONSTRAINT FK_registrado_presenca FOREIGN KEY (id_registrado) REFERENCES registrados(id_chave_registrado);
 ALTER TABLE turmas_registrados ADD CONSTRAINT FK_turma_registrado FOREIGN KEY (id_turma) REFERENCES turmas(id_chave_turma);
