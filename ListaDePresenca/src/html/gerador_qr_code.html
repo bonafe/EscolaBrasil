@@ -15,7 +15,7 @@
         window.onload = () => {
             document.querySelector("#btnGerarQRCode").addEventListener("click", () =>{
                 let containerQRCode = document.querySelector("#containerQRCode");
-                let textoQRCode = `${document.querySelector("#nome").value}-${document.querySelector("#numero")}`;
+                let textoQRCode = `${document.querySelector("#nome").value}-${document.querySelector("#numero").value}`;
                 if (!geradorQRCode){
                     geradorQRCode = new QRCode(containerQRCode, textoQRCode);
                 }else{

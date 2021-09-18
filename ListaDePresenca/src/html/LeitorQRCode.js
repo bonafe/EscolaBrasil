@@ -132,7 +132,7 @@ export class LeitorQRCode{
         let partes = valorQRCode.split("-");
         if (partes.length == 2){
           if (Number.isInteger(parseInt(partes[1]))){
-            TextoParaVoz.INSTANCE.falar(partes[0]);
+            TextoParaVoz.INSTANCE.falar(partes[0].split(" ")[0]);
             falou = true;
           }
         }
