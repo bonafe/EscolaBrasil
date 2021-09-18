@@ -7,7 +7,7 @@
 <head>
     <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="./bibliotecas/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="./bibliotecas/html5-qrcode.min.js"></script>
+    <script src="./bibliotecas/html5-qrcode.min.js"></script>    
 </head>
 <body>
     <!--MENU-->
@@ -17,14 +17,19 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">                
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active"href="./gerador_qr_code.html">Gerador de QRCode</a>
+                    </li>
+                </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="text" placeholder="URL Destino" aria-label="URL Destino" id="urlDestino">
                     <button class="btn btn-outline-success" type="button" id="btnEnviarLista">Enviar</button>
                   </form>
               </div>
         </div>
-    </nav>    
+    </nav>
     <div class="container">
         <!--EXIBIÇÃO DA CÂMERA-->
         <div class="row">
@@ -43,7 +48,7 @@
         </div>
         <!--LISTA DE REGISTROS-->
         <div class="row">
-            <ul class="list-group" id="qrCodeLidos">                
+            <ul class="list-group" id="qrCodeLidos">
             </ul>
         </div>
     </div>

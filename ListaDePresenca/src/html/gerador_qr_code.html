@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<meta charset="UTF-8">
+<title>Escola Brasil - Lista de Presença</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<head>
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="./bibliotecas/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./bibliotecas/html5-qrcode.min.js"></script>
+    <script src="./bibliotecas/qrcode.min.js"></script>
+    <script>
+        let geradorQRCode = null;
+
+        window.onload = () => {
+            document.querySelector("#btnGerarQRCode").addEventListener("click", () =>{
+                let containerQRCode = document.querySelector("#containerQRCode");
+                let textoQRCode = `${document.querySelector("#nome").value}-${document.querySelector("#numero")}`;
+                if (!geradorQRCode){
+                    geradorQRCode = new QRCode(containerQRCode, textoQRCode);
+                }else{
+                    geradorQRCode.clear();
+                    geradorQRCode.makeCode(textoQRCode);
+                }
+            });
+            
+        }        
+    </script>
+</head>
+<body>
+    <!--MENU-->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Gerador de QRCode</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active"href="./index.html">Leitor de QRCode</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Nome" aria-label="Nome" id="nome">
+                    <input class="form-control me-2" type="text" placeholder="Número" aria-label="Número" id="numero">
+                    <button class="btn btn-outline-success" type="button" id="btnGerarQRCode">Gerar</button>
+                  </form>
+              </div>
+        </div>
+    </nav>    
+    <div class="container">            
+        <div class="row">
+            <div class="mx-auto" style="width: 300; height: 300;" id="containerQRCode">                
+            </div>
+        </div>  
+    </div>      
+</body>
+</html>
