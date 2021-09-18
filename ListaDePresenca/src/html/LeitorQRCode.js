@@ -4,13 +4,31 @@
 export class LeitorQRCode{
     
     constructor(){
+
+        this.html5QrCode = null;
+
         this.cameras = document.querySelector("#cameras");
+        this.containerCamera = document.querySelector("#containerCamera");
         this.qrCodeLidos = document.querySelector("#qrCodeLidos");        
         this.ultimoQRCodeLido = undefined;
         this.listaQRCode = [];
 
-        this.cameras.addEventListener("change", ()=>{
-          this.iniciarLeitor(this.cameras.value);
+        this.cameraAtiva = false;
+
+        this.btnMudarEstado = document.querySelector("#estadoCamera");
+        this.btnMudarEstado.addEventListener("click", ()=>{
+
+          this.cameraAtiva = !this.cameraAtiva;
+          this.containerCamera.style.display = (this.cameraAtiva ? 'block' : 'none');
+          this.cameras.disabled = this.cameraAtiva;
+
+          if (this.cameraAtiva){
+            this.iniciarLeitor(this.cameras.value);
+            this.btnMudarEstado.innerText = "Parar";            
+          }else{
+            this.pararLeitor();
+            this.btnMudarEstado.innerText = "Iniciar";            
+          }                    
         });
 
         document.querySelector("#btnEnviarLista").addEventListener("click", () =>{
@@ -41,10 +59,8 @@ export class LeitorQRCode{
                 camera.selected = true;
               }
               this.cameras.appendChild(camera);
-            };
-
-            //Coloca o leitor para funcionar com a última câmera da lista
-            this.iniciarLeitor(devices[devices.length-1].id);
+            }            
+            this.btnMudarEstado.disabled = false;
           }
         }).catch(err => {
           // handle err
@@ -53,9 +69,9 @@ export class LeitorQRCode{
 
     iniciarLeitor(cameraId){
         // Create instance of the object. The only argument is the "id" of HTML element created above.
-        const html5QrCode = new Html5Qrcode("reader");
+        this.html5QrCode = new Html5Qrcode("reader");
 
-        html5QrCode.start(
+        this.html5QrCode.start(
           cameraId,     // retreived in the previous step.
           {
             fps: 10,    // sets the framerate to 10 frame per second
@@ -89,5 +105,13 @@ export class LeitorQRCode{
         this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
 
         this.listaQRCode.push ({data:agora, conteudo:valorQRCode});
+    }
+
+    pararLeitor(){
+      this.html5QrCode.stop().then((ignore) => {
+        // QR Code scanning is stopped.
+      }).catch((err) => {
+        // Stop failed, handle it.
+      });
     }
 }

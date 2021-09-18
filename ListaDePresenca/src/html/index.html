@@ -29,12 +29,16 @@
     <div class="container">
         <!--EXIBIÇÃO DA CÂMERA-->
         <div class="row">
-            <div>
+            <div class="col-6">
                 <select id="cameras">
-                    
                 </select>
             </div>
-            <div class="mx-auto" style="width: 300; height: 300;">
+            <div class="col-6">
+                <button type="button" id="estadoCamera" disabled="true">Iniciar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto" style="width: 300; height: 300;" id="containerCamera" style="display:none;">
                 <div id="reader"></div>
             </div>
         </div>
