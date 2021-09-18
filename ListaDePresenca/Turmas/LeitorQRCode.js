@@ -155,10 +155,15 @@ export class LeitorQRCode{
           this.somQRCodeLido.play();
         }
 
-        const agora = new Date()
+        const agora_itz = new Date();
+		console.log(agora_itz);
+		console.log(agora_itz.toISOString().slice(0,19).replace('T',' '));
+		var agora=agora_itz.toISOString().slice(0, 19).replace('T', ' ');
+		console.log(agora);
+
         let li = document.createElement("li");
         li.classList.add('list-group-item');
-        li.innerText = `${agora.toISOString()} --- ${valorQRCode}`;        
+        li.innerText = `${agora} --- ${valorQRCode}`;        
         this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
 
         this.listaQRCode.push ({data:agora, conteudo:valorQRCode});
