@@ -22,6 +22,13 @@ export class LeitorQRCode{
 
         this.cameraAtiva = false;
 
+        //Download CSV
+        {
+          document.querySelector("#downloadCSV").addEventListener("click", ()=> {
+            this.downloadCSV();
+          });
+        }
+
         //Configura URL de Destino
         {
           let valorURLDestino = localStorage.getItem("urlDestino");
@@ -186,5 +193,33 @@ export class LeitorQRCode{
       .catch( error => {
           throw error;
       });
+  }
+
+  downloadCSV(){
+    let conteudoCSV = "data:text/csv;charset=utf-8,";
+    conteudoCSV += "data, nome, numero, direcao\n";
+    this.listaQRCode.forEach (presenca => {      
+      let partes = presenca.conteudo.split("-");      
+      conteudoCSV += `${presenca.data.toISOString()},${partes[0]},${partes[1]},0`;
+    });
+
+    let nomeArquivoCSV = `${this.dataEmString(new Date())}_lista-presenca.csv`;
+
+    let encodedUri = encodeURI(conteudoCSV);
+    let link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download",nomeArquivoCSV);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);    
+  }
+
+  dataEmString(data){    
+    var dia = String(data.getDate()).padStart(2, '0');
+    var mes = String(data.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var ano = data.getFullYear();
+    let hora = String(data.getHours()).padStart(2, '0');
+    let minuto = String(data.getMinutes()).padStart(2, '0');
+    return `${ano}-${mes}-${dia}_${hora}-${minuto}`;
   }
 }
