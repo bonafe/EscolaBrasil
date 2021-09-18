@@ -69,6 +69,10 @@ export class LeitorQRCode{
         this.povoarListaCameras();
     }
 
+    leitorAtivo(){
+      return this.cameraAtiva;
+    }
+
     povoarListaCameras(){
         // This method will trigger user permissions
         Html5Qrcode.getCameras().then(devices => {
