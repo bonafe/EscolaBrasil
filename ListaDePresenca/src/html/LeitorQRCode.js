@@ -63,7 +63,7 @@ export class LeitorQRCode{
             this.btnMudarEstado.disabled = false;
           }
         }).catch(err => {
-          // handle err
+          alert("Não foi possível recuperar a lista de câmeras!")
         });
     }
 
