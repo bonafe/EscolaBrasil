@@ -38,8 +38,12 @@ export class LeitorQRCode{
           document.querySelector("#btnEnviarLista").addEventListener("click", () =>{
             console.log ("Enviando lista de QRCodes lidos");
             console.dir(this.listaQRCode);
-            ServiceUtils.postJSON (this.urlDestino.value, this.listaQRCode).then (() => {
-                alert (`Lista enviada com sucesso!`);
+            this.efetuarPostLista (this.urlDestino.value, this.listaQRCode).then ((retorno) => {
+                if (retorno){
+                  alert (`Lista enviada com sucesso!`);
+                }else{
+                  alert (`Não foi possível enviar lista!`);
+                }
             }).catch((erro) => {
               alert (`Não foi possível enviar lista! Erro: ${erro}`);
             });
@@ -160,4 +164,27 @@ export class LeitorQRCode{
         // Stop failed, handle it.
       });
     }
+
+    efetuarPostLista(url, objeto){
+      return fetch(
+          url,
+          {
+              method: "POST",
+              headers:{
+                  "Accept":"application/json",
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(objeto)
+          })
+      .then(resposta => {
+        if (resposta.ok) {
+          return true;
+        } else {          
+          throw new Error("Erro na requisição!");
+        }        
+      })      
+      .catch( error => {
+          throw error;
+      });
+  }
 }

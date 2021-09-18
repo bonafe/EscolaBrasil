@@ -57,7 +57,7 @@
         window.leitorQRCode = new LeitorQRCode();
         window.addEventListener("beforeunload", (evento) => {
             if (window.leitorQRCode.leitorAtivo()){
-                window.leitorQRCode.pararLeitor();                
+                window.leitorQRCode.pararLeitor();
             }
         });      
     </script>
