@@ -7,6 +7,8 @@ export class LeitorQRCode{
 
         this.html5QrCode = null;
 
+        this.somQRCodeLido = new Audio('./audio/qrcode_lido.mp3');
+
         this.cameras = document.querySelector("#cameras");
         this.containerCamera = document.querySelector("#containerCamera");
         this.qrCodeLidos = document.querySelector("#qrCodeLidos");        
@@ -97,6 +99,8 @@ export class LeitorQRCode{
     }
 
     adicionarItem(valorQRCode){
+
+        this.somQRCodeLido.play();
 
         const agora = new Date()
         let li = document.createElement("li");
