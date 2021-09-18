@@ -9,25 +9,10 @@
     <script src="./bibliotecas/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="./bibliotecas/html5-qrcode.min.js"></script>
     <script src="./bibliotecas/qrcode.min.js"></script>
-    <script>
-        let geradorQRCode = null;
-
-        window.onload = () => {
-            document.querySelector("#btnGerarQRCode").addEventListener("click", () =>{
-                let containerQRCode = document.querySelector("#containerQRCode");
-                let textoQRCode = `${document.querySelector("#nome").value}-${document.querySelector("#numero").value}`;
-                if (!geradorQRCode){
-                    geradorQRCode = new QRCode(containerQRCode, textoQRCode);
-                }else{
-                    geradorQRCode.clear();
-                    geradorQRCode.makeCode(textoQRCode);
-                }
-            });
-            
-        }        
-    </script>
+    <script src="./bibliotecas/jspdf.umd.min.js"></script>
+    <script src="./GeradorQRCode.js" type="module"></script>    
 </head>
-<body>
+<body>    
     <!--MENU-->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
@@ -39,6 +24,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                       <a class="nav-link active"href="./index.html">Leitor de QRCode</a>
+                    </li>
+                    <li class="nav-item">                                                    
+                        <input type="file" class="form-control-file" id="arquivoCSV" accept="text/csv" style="display:none">                                             
+                        <a class="nav-link"href="#" id="btnEnviarCSV">Enviar lista Alunos</a>
+                    </li>
+                    <li class="nav-item">                                                                            
+                        <a class="nav-link"href="#" id="btnGerarPDF">Gerar PDF QRCode</a>
                     </li>
                 </ul>
                 <form class="d-flex">

@@ -215,9 +215,9 @@ export class LeitorQRCode{
   }
 
   dataEmString(data){    
-    var dia = String(data.getDate()).padStart(2, '0');
-    var mes = String(data.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var ano = data.getFullYear();
+    let dia = String(data.getDate()).padStart(2, '0');
+    let mes = String(data.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let ano = data.getFullYear();
     let hora = String(data.getHours()).padStart(2, '0');
     let minuto = String(data.getMinutes()).padStart(2, '0');
     return `${ano}-${mes}-${dia}_${hora}-${minuto}`;
