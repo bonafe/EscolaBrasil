@@ -207,10 +207,10 @@ export class LeitorQRCode{
 
   downloadCSV(){
     let conteudoCSV = "data:text/csv;charset=utf-8,";
-    conteudoCSV += "data; turma; numero; nome; direcao\n";
+    conteudoCSV += "data;turma;numero;nome;direcao\n";
     this.listaQRCode.forEach (presenca => {      
       let partes = presenca.conteudo.split("-");      
-      conteudoCSV += `${presenca.data.toISOString()};${partes[0]};${partes[1]};${partes[2]};0`;
+      conteudoCSV += `${presenca.data};${partes[0]};${partes[1]};${partes[2]};0`;
     });
 
     let nomeArquivoCSV = `${this.dataEmString(new Date())}_lista-presenca.csv`;
