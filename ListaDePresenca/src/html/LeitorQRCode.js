@@ -161,8 +161,7 @@ export class LeitorQRCode{
           this.somQRCodeLido.play();
         }
 
-        //TODO: Voltar para ISO String (mudar também no back-end php)
-        const agora = new Date()
+        //TODO: Voltar para ISO String (mudar também no back-end php)        
         const agora_itz = new Date();		
 		    let agora = agora_itz.toISOString().slice(0, 19).replace('T', ' ');
 		    
