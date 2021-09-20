@@ -18,7 +18,7 @@ export class TextoParaVoz{
 	selecionarVozPTBR() {		
 	  	for (let iVoice in this.synth.getVoices()){
 			let voice = this.synth.getVoices()[iVoice];
-			if (voice.lang.toUpperCase == "PT-BR"){
+			if (voice.lang.toUpperCase() == "PT-BR"){
 				return voice;
 			}
 		}
@@ -42,9 +42,16 @@ export class TextoParaVoz{
 	        console.error('SpeechSynthesisUtterance.onerror');
 	    }
 
- 		utterThis.voice = this.selecionarVozPTBR();
-	    utterThis.pitch = 1;
-	    utterThis.rate = 1;
-	    this.synth.speak(utterThis);
+		let voice = this.selecionarVozPTBR();
+
+		if (!voice){
+			alert ("Não foi possível selecionar voz Português Brasil!");
+		}else{
+			console.log (`Mandou falar:${texto}`);
+			utterThis.voice = voice;
+			utterThis.pitch = 1;
+			utterThis.rate = 1;
+			this.synth.speak(utterThis);
+		}
 	}
 }
