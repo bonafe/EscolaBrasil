@@ -47,6 +47,8 @@ export class LeitorQRCode{
             console.dir(this.listaQRCode);
             this.efetuarPostLista (this.urlDestino.value, this.listaQRCode).then ((retorno) => {
                 if (retorno){
+                  this.listaQRCode=[];
+                  this.qrCodeLidos.innerHTML="";
                   alert (`Lista enviada com sucesso!`);
                 }else{
                   alert (`Não foi possível enviar lista!`);

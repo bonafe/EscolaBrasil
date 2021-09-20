@@ -47,6 +47,8 @@ export class LeitorQRCode{
             console.dir(this.listaQRCode);
             this.efetuarPostLista (this.urlDestino.value, this.listaQRCode).then ((retorno) => {
                 if (retorno){
+                  this.listaQRCode=[];
+                  this.qrCodeLidos.innerHTML="";
                   alert (`Lista enviada com sucesso!`);
                 }else{
                   alert (`Não foi possível enviar lista!`);
@@ -159,10 +161,14 @@ export class LeitorQRCode{
           this.somQRCodeLido.play();
         }
 
+        //TODO: Voltar para ISO String (mudar também no back-end php)
         const agora = new Date()
+        const agora_itz = new Date();		
+		    let agora = agora_itz.toISOString().slice(0, 19).replace('T', ' ');
+		    
         let li = document.createElement("li");
         li.classList.add('list-group-item');
-        li.innerText = `${agora.toISOString()} --- ${valorQRCode}`;        
+        li.innerText = `${agora} --- ${valorQRCode}`;        
         this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
 
         this.listaQRCode.push ({data:agora, conteudo:valorQRCode});
