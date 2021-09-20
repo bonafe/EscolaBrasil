@@ -153,8 +153,9 @@ export class LeitorQRCode{
           let numero = parseInt(partes[1]);
           
           if (Number.isInteger(numero)){
-            TextoParaVoz.INSTANCE.falar(nome);
-            falou = true;
+            if (TextoParaVoz.INSTANCE.falar(nome)){
+              falou = true;
+            }            
           }
         }
         if (!falou){

@@ -29,7 +29,7 @@ export class TextoParaVoz{
 	falar(texto){
 	    if (this.synth.speaking) {
 	        console.error('speechSynthesis.speaking');
-	        return;
+	        return false;
 	    }
 	    
 	    let utterThis = new SpeechSynthesisUtterance(texto);
@@ -45,13 +45,15 @@ export class TextoParaVoz{
 		let voice = this.selecionarVozPTBR();
 
 		if (!voice){
-			alert ("Não foi possível selecionar voz Português Brasil!");
+			console.log ("Não foi possível selecionar voz Português Brasil!");
+			return false;
 		}else{
 			console.log (`Mandou falar:${texto}`);
 			utterThis.voice = voice;
 			utterThis.pitch = 1;
 			utterThis.rate = 1;
 			this.synth.speak(utterThis);
+			return true;
 		}
 	}
 }
