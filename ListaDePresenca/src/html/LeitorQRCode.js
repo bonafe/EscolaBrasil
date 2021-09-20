@@ -145,9 +145,13 @@ export class LeitorQRCode{
 
         let falou = false;
         let partes = valorQRCode.split("-");
-        if (partes.length == 2){
-          if (Number.isInteger(parseInt(partes[1]))){
-            TextoParaVoz.INSTANCE.falar(partes[0].split(" ")[0]);
+        if (partes.length == 3){
+
+          let nome = partes[2].split(" ")[0];
+          let numero = parseInt(partes[1]);
+          
+          if (Number.isInteger(numero)){
+            TextoParaVoz.INSTANCE.falar();
             falou = true;
           }
         }

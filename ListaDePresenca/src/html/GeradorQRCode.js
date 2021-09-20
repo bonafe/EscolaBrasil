@@ -1,3 +1,5 @@
+import { CSVLondrina } from "./modulos/csv/londrina/CSVLondrina.js";
+
 window.geradorQRCode = null;
 window.listaAlunos = [];
 
@@ -6,7 +8,7 @@ window.onload = () => {
 
     document.querySelector("#btnGerarQRCode").addEventListener("click", () =>{
         
-        let textoQRCode = `${document.querySelector("#nome").value}-${document.querySelector("#numero").value}`;
+        let textoQRCode = `${document.querySelector("#turma").value}-${document.querySelector("#numero").value}-${document.querySelector("#nome").value}`;
         gerarQRCode(textoQRCode);                
     });
 
@@ -26,7 +28,11 @@ window.onload = () => {
         reader.onload = evento => { 
             let conteudoBase64 = evento.target.result.split(",")[1];
             let conteudoUnicode = b64DecodeUnicode(conteudoBase64);
-            processarCSVListaAlunos(conteudoUnicode);
+            if (confirm("Deseja processar CSV específico para Londrina?")){
+                CSVLondrina.processarCSV(conteudoUnicode);
+            }else{                
+                processarCSVListaAlunos(conteudoUnicode);
+            }            
         };
         reader.readAsDataURL(inputArquivoCSV.files[0]);
     }); 
@@ -44,6 +50,7 @@ function gerarQRCode(textoQRCode){
 }
 
 function processarCSVListaAlunos (csv){
+
     window.listaAlunos = [];
     let linhas = csv.split("\n");
     for (let iLinha = 1; iLinha < linhas.length; iLinha++){
@@ -52,9 +59,9 @@ function processarCSVListaAlunos (csv){
         if (campos[0] && campos[1]){
 
             console.log (`Nome:${campos[0]} --- Número:${campos[1]}`);                    
-            window.listaAlunos.push({nome:campos[0],numero:campos[1]});
+            window.listaAlunos.push({turma:campos[0], numero:campos[1], nome:campos[2]});
         }
-    }
+    }    
 }
 
 function b64DecodeUnicode(str) {
@@ -67,35 +74,55 @@ function b64DecodeUnicode(str) {
 function gerarPDF(){
     const doc = new window.jspdf.jsPDF();            
 
-    const imagens_por_pagina = 3;
-    let imagemAtual = 1;
-    let x = 70;
+    const linhas_por_pagina = 3;
+    const colunas_por_pagina = 2;
+
+    let linhaAtual = 1;
+    let colunaAtual = 1;
+
+    let x = 10;
     let y = 15;
 
     for (let iAluno in window.listaAlunos){
 
         let aluno = window.listaAlunos[iAluno];
 
-        if (imagemAtual == 1){
-            x = 70;
+        if (linhaAtual == 1){            
             y = 15;
         }
-
-        let textoQRCode = `${aluno.nome}-${aluno.numero}`;
+        switch (colunaAtual){
+            case 1: 
+                x = 15;
+                break;
+            case 2:
+                x = 120;
+                break;            
+        }
+        
+        let textoQRCode = `${aluno.turma}-${aluno.numero}-${aluno.nome}`;
         gerarQRCode(textoQRCode);
 
         let imgQRCode = containerQRCode.querySelector("img");
         doc.addImage(imgQRCode.src.split(",")[1], "JPG", x, y);
 
-        doc.text (aluno.nome, x, y-5);
-        doc.text (aluno.numero, x, y+74);                
+        doc.text (`${aluno.numero.toString()}-${aluno.nome.split(" ")[0]}`, x, y-5);                        
+        doc.text (`Turma: ${aluno.turma}`, x, y+74);
 
-        imagemAtual++;
+        linhaAtual++;
         y += 95;
 
-        if ((imagemAtual > imagens_por_pagina) && (iAluno < (window.listaAlunos.length-1))){
-            imagemAtual = 1;
-            doc.addPage();
+        if (linhaAtual > linhas_por_pagina){
+            
+            linhaAtual = 1;
+            colunaAtual++;
+
+            if (colunaAtual > colunas_por_pagina){
+                colunaAtual = 1;                
+
+                if (iAluno < (window.listaAlunos.length-1)){
+                    doc.addPage();
+                }
+            }                        
         }                
     }
 
