@@ -58,7 +58,7 @@ function processarCSVListaAlunos (csv){
         
         if (campos[0] && campos[1]){
 
-            console.log (`Nome:${campos[0]} --- Número:${campos[1]}`);                    
+            console.log (`Turma:${campos[0]} --- Número:${campos[1]} --- Nome:${campos[2]}`);                    
             window.listaAlunos.push({turma:campos[0], numero:campos[1], nome:campos[2]});
         }
     }    
