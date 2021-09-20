@@ -161,17 +161,15 @@ export class LeitorQRCode{
         if (!falou){
           this.somQRCodeLido.play();
         }
-
-        //TODO: Voltar para ISO String (mudar também no back-end php)        
-        const agora_itz = new Date();		
-		    let agora = agora_itz.toISOString().slice(0, 19).replace('T', ' ');
+        
+        const agora = new Date();				    
 		    
         let li = document.createElement("li");
         li.classList.add('list-group-item');
-        li.innerText = `${agora} --- ${valorQRCode}`;        
+        li.innerText = `${agora.toLocaleString()} --- ${valorQRCode}`;        
         this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
 
-        this.listaQRCode.push ({data:agora, conteudo:valorQRCode});
+        this.listaQRCode.push ({data:agora.toLocaleString(), conteudo:valorQRCode});
     }
 
     pararLeitor(){
@@ -226,7 +224,7 @@ export class LeitorQRCode{
 
   dataEmString(data){    
     let dia = String(data.getDate()).padStart(2, '0');
-    let mes = String(data.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let mes = String(data.getMonth() + 1).padStart(2, '0');
     let ano = data.getFullYear();
     let hora = String(data.getHours()).padStart(2, '0');
     let minuto = String(data.getMinutes()).padStart(2, '0');
