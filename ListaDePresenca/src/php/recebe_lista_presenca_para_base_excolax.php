@@ -2,9 +2,9 @@
     $lista_presenca_string = file_get_contents('php://input');
     $lista_presenca = json_decode($lista_presenca_string);    
     
-    $usuario = "vitor";
+    $usuario = "usu_ario";
     //TODO: puxar senha da varíavel de ambiente    
-    $senha = "toninho13";
+    $senha = "se_nha";
     $base = "escolax";
 
     $conn = new mysqli("localhost", $usuario, $senha, $base);
