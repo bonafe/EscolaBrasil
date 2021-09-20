@@ -17,7 +17,7 @@ export class CSVLondrina{
         window.listaAlunos = [];
 
         for (let iLinha = inicioDados; (iLinha < linhas.length) && !terminou; iLinha++){
-            let campos = linhas[iLinha].split(",");
+            let campos = linhas[iLinha].split(";");
             let numeroLinha = parseInt(campos[0]);
 
             //Se é um número inteiro guarda como número do aluno atual

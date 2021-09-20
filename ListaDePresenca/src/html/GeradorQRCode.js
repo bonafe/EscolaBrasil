@@ -54,7 +54,7 @@ function processarCSVListaAlunos (csv){
     window.listaAlunos = [];
     let linhas = csv.split("\n");
     for (let iLinha = 1; iLinha < linhas.length; iLinha++){
-        let campos = linhas[iLinha].split(",");
+        let campos = linhas[iLinha].split(";");
         
         if (campos[0] && campos[1]){
 
