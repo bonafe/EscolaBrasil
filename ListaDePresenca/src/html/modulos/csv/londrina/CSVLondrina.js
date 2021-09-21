@@ -6,6 +6,7 @@ export class CSVLondrina{
 
         let turma = prompt("Digite o nome da turma:","sem turma");
         
+        conteudo = conteudo.replace("\r", "");
         let linhas = conteudo.split("\n");
         
         let numeroAtual = null;

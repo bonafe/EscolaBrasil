@@ -52,6 +52,7 @@ function gerarQRCode(textoQRCode){
 function processarCSVListaAlunos (csv){
 
     window.listaAlunos = [];
+    csv = csv.replace(/\r/g,"")
     let linhas = csv.split("\n");
     for (let iLinha = 1; iLinha < linhas.length; iLinha++){
         let campos = linhas[iLinha].split(";");

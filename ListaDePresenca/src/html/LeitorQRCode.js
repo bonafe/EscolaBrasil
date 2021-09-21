@@ -18,7 +18,13 @@ export class LeitorQRCode{
         this.qrCodeLidos = document.querySelector("#qrCodeLidos");        
         this.urlDestino = document.querySelector("#urlDestino");
         this.ultimoQRCodeLido = undefined;
-        this.listaQRCode = [];
+
+        let listaQRCode = localStorage.getItem("listaQRCode");
+        if (listaQRCode){
+          this.listaQRCode = JSON.parse(listaQRCode);
+        }else{
+          this.listaQRCode = [];
+        }
 
         this.cameraAtiva = false;
 
@@ -44,11 +50,22 @@ export class LeitorQRCode{
         {
           document.querySelector("#btnEnviarLista").addEventListener("click", () =>{
             console.log ("Enviando lista de QRCodes lidos");
-            console.dir(this.listaQRCode);
-            this.efetuarPostLista (this.urlDestino.value, this.listaQRCode).then ((retorno) => {
+
+            let listaQRCodeEnviar = [];
+            this.listaQRCode.forEach(registro => {
+              if (!registro.enviado){
+                listaQRCodeEnviar.push(registro);
+              }
+            });
+
+            console.dir(listaQRCodeEnviar);
+            this.efetuarPostLista (this.urlDestino.value, listaQRCodeEnviar).then ((retorno) => {
                 if (retorno){
-                  this.listaQRCode=[];
-                  this.qrCodeLidos.innerHTML="";
+                  this.listaQRCode.forEach(registro => {
+                    if (!registro.enviado){
+                      registro.enviado = true;
+                    }
+                  });
                   alert (`Lista enviada com sucesso!`);
                 }else{
                   alert (`Não foi possível enviar lista!`);
@@ -169,7 +186,8 @@ export class LeitorQRCode{
         li.innerText = `${agora.toLocaleString()} --- ${valorQRCode}`;        
         this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
 
-        this.listaQRCode.push ({data:agora.toLocaleString(), conteudo:valorQRCode});
+        this.listaQRCode.push ({data:agora.toLocaleString(), conteudo:valorQRCode, enviado:false});
+        localStorage.setItem("listaQRCode", JSON.stringify(this.listaQRCode));
     }
 
     pararLeitor(){
