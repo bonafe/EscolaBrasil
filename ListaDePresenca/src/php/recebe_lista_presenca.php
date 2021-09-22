@@ -4,7 +4,7 @@
     
     $usuario = "root";
     //TODO: puxar senha da varíavel de ambiente    
-    $senha = "";
+    $senha = "ovopreto";
     $base = "escolax";
 
     $conn = new mysqli("localhost", $usuario, $senha, $base);
