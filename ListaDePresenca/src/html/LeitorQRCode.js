@@ -35,6 +35,16 @@ export class LeitorQRCode{
           });
         }
 
+        //Limpar dados
+        {
+          document.querySelector("#limparDados").addEventListener("click", ()=> {
+            if (confirm("Deseja limpar os dados salvos localmente?")){
+              this.listaQRCode = [];
+              localStorage.setItem("listaQRCode", JSON.stringify(this.listaQRCode));
+            } 
+          });
+        }
+        
         //Configura URL de Destino
         {
           let valorURLDestino = localStorage.getItem("urlDestino");
