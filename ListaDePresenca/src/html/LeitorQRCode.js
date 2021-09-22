@@ -66,6 +66,7 @@ export class LeitorQRCode{
                       registro.enviado = true;
                     }
                   });
+                  localStorage.setItem("listaQRCode", JSON.stringify(this.listaQRCode));
                   alert (`Lista enviada com sucesso!`);
                 }else{
                   alert (`Não foi possível enviar lista!`);
