@@ -256,6 +256,6 @@ export class LeitorQRCode{
     let ano = data.getFullYear();
     let hora = String(data.getHours()).padStart(2, '0');
     let minuto = String(data.getMinutes()).padStart(2, '0');
-    return `${dia}/${mes}/${ano} ${hora}:${minuto}`;
+    return `${ano}-${mes}-${dia} ${hora}:${minuto}`;
   }
 }
