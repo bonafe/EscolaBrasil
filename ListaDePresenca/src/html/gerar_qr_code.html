@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<title>Escola Brasil - Lista de Presença</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<head>
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-icons.css" rel="stylesheet">
+    <script src="./bibliotecas/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bibliotecas/html5-qrcode.min.js"></script>
+    <script src="./bibliotecas/qrcode.min.js"></script>
+    <script src="./bibliotecas/jspdf.umd.min.js"></script>
+    <script src="./GeradorQRCode.js" type="module"></script>
+</head>
+<body>
+
+    <!--OPTIONS-->
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom text-center"><i class="bi bi-person-bounding-box fs-1 p-4"></i>Gerar QR Code</h2>
+    </div>
+    <div class="row justify-content-center">
+      <form class="col-3">
+        <input class="form-control m-2" type="text" placeholder="Turma" aria-label="Turma" id="turma">
+        <input class="form-control m-2" type="text" placeholder="Número" aria-label="Número" id="numero">
+        <input class="form-control m-2" type="text" placeholder="Nome" aria-label="Nome" id="nome">
+        <button class="btn btn-outline-success m-2 col-12" type="button" id="btnGerarQRCode">Gerar</button>
+      </form>
+    </div>
+</body>
+</html>

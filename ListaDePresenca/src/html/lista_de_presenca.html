@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<title>Escola Brasil - Lista de Presença</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<head>
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-icons.css" rel="stylesheet">
+    <script src="./bibliotecas/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bibliotecas/html5-qrcode.min.js"></script>
+</head>
+<body>
+
+    <!--OPTIONS-->
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom text-center"><i class="bi bi-clipboard-check fs-1 p-4"></i>Download lista</h2>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <select class="form-select" id="cameras">
+          </select>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-success" type="button" id="estadoCamera" disabled="true">Iniciar</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto" style="width: 300; height: 300;" id="containerCamera" style="display:none;">
+          <div id="reader"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+        import { LeitorQRCode } from "./LeitorQRCode2.js";
+        window.leitorQRCode = new LeitorQRCode();
+        window.addEventListener("beforeunload", (evento) => {
+            if (window.leitorQRCode.leitorAtivo()){
+                window.leitorQRCode.pararLeitor();
+            }
+        });
+    </script>
+</body>
+</html>
