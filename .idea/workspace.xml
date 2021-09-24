@@ -1,52 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79288c33-9b1a-4223-82c0-ef57dba4fb44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/LeitorQRCode2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/fonts/bootstrap-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/fonts/bootstrap-icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/gerar_qr_code.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/index2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/ler_qr_code.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/lista_de_presenca.html" afterDir="false" />
+    <list default="true" id="79288c33-9b1a-4223-82c0-ef57dba4fb44" name="Changes" comment="Atualizações no Frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/jspdf.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/jspdf.umd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/gerar_qr_code.html" beforeDir="false" afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/gerar_qr_code.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/ler_qr_code.html" beforeDir="false" afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/ler_qr_code.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +46,14 @@
       <option name="presentableId" value="Default" />
       <updated>1631749728665</updated>
     </task>
+    <task id="LOCAL-00001" summary="Atualizações no Frontend">
+      <created>1632490927152</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632490927152</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,5 +67,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Atualizações no Frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizações no Frontend" />
   </component>
 </project>
