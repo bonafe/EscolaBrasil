@@ -35,6 +35,16 @@ export class LeitorQRCode{
           });
         }
 
+        //Limpar dados
+        {
+          document.querySelector("#limparDados").addEventListener("click", ()=> {
+            if (confirm("Deseja limpar os dados salvos localmente?")){
+              this.listaQRCode = [];
+              localStorage.setItem("listaQRCode", JSON.stringify(this.listaQRCode));
+            } 
+          });
+        }
+        
         //Configura URL de Destino
         {
           let valorURLDestino = localStorage.getItem("urlDestino");
@@ -66,6 +76,7 @@ export class LeitorQRCode{
                       registro.enviado = true;
                     }
                   });
+                  localStorage.setItem("listaQRCode", JSON.stringify(this.listaQRCode));
                   alert (`Lista enviada com sucesso!`);
                 }else{
                   alert (`Não foi possível enviar lista!`);
@@ -183,10 +194,10 @@ export class LeitorQRCode{
 		    
         let li = document.createElement("li");
         li.classList.add('list-group-item');
-        li.innerText = `${agora.toLocaleString()} --- ${valorQRCode}`;        
+        li.innerText = `${this.dataEmStringCampoData(agora)} --- ${valorQRCode}`;        
         this.qrCodeLidos.insertBefore(li, this.qrCodeLidos.firstChild);
 
-        this.listaQRCode.push ({data:agora.toLocaleString(), conteudo:valorQRCode, enviado:false});
+        this.listaQRCode.push ({data:this.dataEmStringCampoData(agora), conteudo:valorQRCode, enviado:false});
         localStorage.setItem("listaQRCode", JSON.stringify(this.listaQRCode));
     }
 
@@ -229,7 +240,7 @@ export class LeitorQRCode{
       conteudoCSV += `${presenca.data};${partes[0]};${partes[1]};${partes[2]};0\n`;
     });
 
-    let nomeArquivoCSV = `${this.dataEmString(new Date())}_lista-presenca.csv`;
+    let nomeArquivoCSV = `${this.dataEmStringNomeArquivo(new Date())}_lista-presenca.csv`;
 
     let encodedUri = encodeURI(conteudoCSV);
     let link = document.createElement("a");
@@ -240,12 +251,21 @@ export class LeitorQRCode{
     document.body.removeChild(link);    
   }
 
-  dataEmString(data){    
+  dataEmStringNomeArquivo(data){    
     let dia = String(data.getDate()).padStart(2, '0');
     let mes = String(data.getMonth() + 1).padStart(2, '0');
     let ano = data.getFullYear();
     let hora = String(data.getHours()).padStart(2, '0');
     let minuto = String(data.getMinutes()).padStart(2, '0');
     return `${ano}-${mes}-${dia}_${hora}-${minuto}`;
+  }
+
+  dataEmStringCampoData(data){    
+    let dia = String(data.getDate()).padStart(2, '0');
+    let mes = String(data.getMonth() + 1).padStart(2, '0');
+    let ano = data.getFullYear();
+    let hora = String(data.getHours()).padStart(2, '0');
+    let minuto = String(data.getMinutes()).padStart(2, '0');
+    return `${ano}-${mes}-${dia} ${hora}:${minuto}`;
   }
 }
