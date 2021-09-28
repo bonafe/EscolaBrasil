@@ -31,7 +31,9 @@ export class LeitorQRCode{
         //Download CSV
         {
           document.querySelector("#downloadCSV").addEventListener("click", ()=> {
-            this.downloadCSV();
+            if (confirm("Deseja fazer download da lista de presença?")){
+              this.downloadCSV();
+            }
           });
         }
 
