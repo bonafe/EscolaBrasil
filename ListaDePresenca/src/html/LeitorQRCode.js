@@ -249,8 +249,10 @@ export class LeitorQRCode{
     link.setAttribute("href", encodedUri);
     link.setAttribute("download",nomeArquivoCSV);
     document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);    
+    setTimeout(()=> {
+      link.click();
+      document.body.removeChild(link);    
+    }, 1000);
   }
 
   dataEmStringNomeArquivo(data){    
