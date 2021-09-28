@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="79288c33-9b1a-4223-82c0-ef57dba4fb44" name="Changes" comment="" />
+=======
+    <list default="true" id="79288c33-9b1a-4223-82c0-ef57dba4fb44" name="Changes" comment="Atualizações no Frontend">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ListaDePresenca/src/html/ler_qr_code.html" beforeDir="false" afterPath="$PROJECT_DIR$/ListaDePresenca/src/html/ler_qr_code.html" afterDir="false" />
+    </list>
+>>>>>>> 61eb7930513a50499d06a35eb2f445791889e38a
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,12 +24,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../morrotorto/src/python" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ListaDePresenca/src/html" />
+>>>>>>> 61eb7930513a50499d06a35eb2f445791889e38a
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ListaDePresenca/src/html" />
+      <recent name="$PROJECT_DIR$/ListaDePresenca/src/html/modulos" />
+      <recent name="$PROJECT_DIR$/ListaDePresenca/src/html/bibliotecas/bootstrap-5.1.1-dist/css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ListaDePresenca/src/html" />
       <recent name="$PROJECT_DIR$/ListaDePresenca/src/python" />
     </key>
   </component>
@@ -35,6 +53,21 @@
       <option name="presentableId" value="Default" />
       <updated>1631749728665</updated>
     </task>
+    <task id="LOCAL-00001" summary="Atualizações no Frontend">
+      <created>1632490927152</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632490927152</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Atualizações no Frontend">
+      <created>1632491766838</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632491766838</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -48,5 +81,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Atualizações no Frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizações no Frontend" />
   </component>
 </project>

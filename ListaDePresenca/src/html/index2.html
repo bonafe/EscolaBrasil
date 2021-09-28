@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<title>Escola Brasil - Lista de Presença</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<head>
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bibliotecas/bootstrap-5.1.1-dist/css/bootstrap-icons.css" rel="stylesheet">
+    <script src="./bibliotecas/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bibliotecas/html5-qrcode.min.js"></script>
+    <script src="./bibliotecas/qrcode.min.js"></script>
+    <script src="./bibliotecas/jspdf.umd.min.js"></script>
+    <script src="./GeradorQRCode.js" type="module"></script>
+</head>
+<body>
+
+    <!--OPTIONS-->
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom text-center">Lista de presença</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col text-center">
+          <a href="./gerar_qr_code.html" class="text-decoration-none text-dark">
+            <i class="bi bi-person-bounding-box fs-1"></i>
+            <h2>Gerar QR Code</h2>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+          </a>
+        </div>
+        <div class="feature col text-center">
+          <a href="./ler_qr_code.html" class="text-decoration-none text-dark">
+            <i class="bi bi-fullscreen fs-1"></i>
+            <h2>Ler QR Code</h2>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+          </a>
+        </div>
+        <div class="feature col text-center">
+          <input type="file" class="form-control-file" id="arquivoCSV" accept="text/csv" style="display:none">
+          <a href="#" id="btnEnviarCSV" class="text-decoration-none text-dark">
+            <i class="bi bi-clipboard-check fs-1"></i>
+            <h2>Download lista</h2>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
